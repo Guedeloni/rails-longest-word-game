@@ -4,14 +4,15 @@
     <li> <%= letter %> </li>
   <% end %>
 </ul>
+
 <form action="score" method="post">
+  <%= hidden_field_tag :letters, @letters %>
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
   <label for="field">"What is the longest word you can find ?</label>
   <br/>
   <input type="text"
          name="word"
-         value="<% params[:word] %>"
          placeholder="Your longest word..."
          id="field">
   <input type="submit" value="Play !">
 </form>
-<%= hidden_field_tag :authenticity_token, form_authenticity_token %>

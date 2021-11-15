@@ -1,3 +1,12 @@
 <h2>Your score</h2>
-<h3><%= params[:word] %></h3>
-<%= link_to "New game", game_path %>
+<% if @valide %>
+  <% if @english %>
+    <h3>Well done !</h3>
+  <% else %>
+    <h3>This word don't exist in english !</h3>
+  <% end %>
+<% else %>
+  <h3>Word's not valide with the grid <%= @letters %></h3>
+<% end %>
+
+<%= link_to "New game", new_path, {class: "link"} %>
